@@ -13,7 +13,6 @@
 		<bouncycastle.version>1.51</bouncycastle.version>
 		<jersey.client.version>2.24</jersey.client.version>
 		<commons.io.version>2.5</commons.io.version>
-		<jackson.version>2.8.4</jackson.version>
 	</properties>
 
 	<dependencies>

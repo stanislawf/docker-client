@@ -11,9 +11,9 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.hft.stuttgart.dockercmds.IImageCommands;
-import de.hft.stuttgart.dockercmds.ImageCommands;
-import de.hft.stuttgart.model.Image;
+import de.hft.client.dockercmds.api.IImageCommands;
+import de.hft.client.dockercmds.impl.ImageCommands;
+import de.hft.client.model.Image;
 
 public class TestImageCommands {
 

@@ -11,9 +11,9 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.hft.stuttgart.dockercmds.ContainerCommands;
-import de.hft.stuttgart.dockercmds.IContainerCommands;
-import de.hft.stuttgart.model.Container;
+import de.hft.client.dockercmds.api.IContainerCommands;
+import de.hft.client.dockercmds.impl.ContainerCommands;
+import de.hft.client.model.Container;
 
 public class TestGetAllContainer {
 
