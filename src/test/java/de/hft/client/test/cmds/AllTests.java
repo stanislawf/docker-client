@@ -1,4 +1,4 @@
-package de.hft.stuttgart.test.commands;
+package de.hft.client.test.cmds;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

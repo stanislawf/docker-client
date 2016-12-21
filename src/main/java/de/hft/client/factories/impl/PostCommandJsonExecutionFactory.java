@@ -2,12 +2,11 @@ package de.hft.client.factories.impl;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 
-import de.hft.client.cmd.exec.api.ICommandExecution;
 import de.hft.client.cmd.exec.api.ICommandExecutionJson;
 import de.hft.client.cmd.exec.impl.PostCommandJsonExecution;
-import de.hft.client.factories.api.CommandExecutionFactory;
+import de.hft.client.factories.api.CommandExecutionJsonFactory;
 
-public class PostCommandJsonExecutionFactory extends CommandExecutionFactory {
+public class PostCommandJsonExecutionFactory extends CommandExecutionJsonFactory {
 
 	public PostCommandJsonExecutionFactory(CloseableHttpClient client) {
 		super(client);
@@ -18,8 +17,4 @@ public class PostCommandJsonExecutionFactory extends CommandExecutionFactory {
 		return new PostCommandJsonExecution(client);
 	}
 
-	@Override
-	public ICommandExecution getCommandExection(CloseableHttpClient client) {
-		return null;
-	}
 }

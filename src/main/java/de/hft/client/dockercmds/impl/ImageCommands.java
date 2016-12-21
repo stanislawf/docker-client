@@ -19,7 +19,7 @@ import de.hft.client.dockercmds.api.IImageCommands;
 import de.hft.client.factories.api.CommandExecutionFactory;
 import de.hft.client.factories.impl.GetCommandExecutionFactory;
 import de.hft.client.model.Image;
-import de.hft.client.setup.DockerSettings;
+import de.hft.client.setup.DockerConnection;
 
 public class ImageCommands implements IImageCommands {
 
@@ -31,10 +31,10 @@ public class ImageCommands implements IImageCommands {
 
 	private CloseableHttpClient client;
 
-	private DockerSettings settings;
+	private DockerConnection settings;
 
 	public ImageCommands() {
-		this.settings = new DockerSettings();
+		this.settings = new DockerConnection();
 	}
 
 	@Override

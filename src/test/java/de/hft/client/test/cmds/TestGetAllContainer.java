@@ -1,4 +1,4 @@
-package de.hft.stuttgart.test.commands;
+package de.hft.client.test.cmds;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItems;

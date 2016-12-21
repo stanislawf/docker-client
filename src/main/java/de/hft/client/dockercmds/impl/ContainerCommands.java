@@ -18,16 +18,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.hft.client.dockercmds.api.IContainerCommands;
 import de.hft.client.factories.api.CommandExecutionFactory;
+import de.hft.client.factories.api.CommandExecutionJsonFactory;
 import de.hft.client.factories.impl.DeleteCommandExecutionFactory;
 import de.hft.client.factories.impl.GetCommandExecutionFactory;
 import de.hft.client.factories.impl.PostCommandExecutionFactory;
 import de.hft.client.factories.impl.PostCommandJsonExecutionFactory;
 import de.hft.client.model.Container;
-import de.hft.client.setup.DockerSettings;
+import de.hft.client.setup.DockerConnection;
 
 public class ContainerCommands implements IContainerCommands {
 
 	private CommandExecutionFactory commandExecution;
+
+	private CommandExecutionJsonFactory commandJSonExecution;
 
 	private int statusCode = 0;
 
@@ -35,10 +38,10 @@ public class ContainerCommands implements IContainerCommands {
 
 	private CloseableHttpClient client;
 
-	private DockerSettings settings;
+	private DockerConnection settings;
 
 	public ContainerCommands() {
-		this.settings = new DockerSettings();
+		this.settings = new DockerConnection();
 	}
 
 	@Override
@@ -127,12 +130,12 @@ public class ContainerCommands implements IContainerCommands {
 	@Override
 	public void createContainer(String imageName, String containerName) {
 		this.client = settings.getHttpConnection();
-		commandExecution = new PostCommandJsonExecutionFactory(client);
+		commandJSonExecution = new PostCommandJsonExecutionFactory(client);
 		String path = CONTAINERS + "/create?name=" + containerName;
 		String jsonEntity = "{\"Image\":\"" + imageName + "\"}";
 		try {
 			StringEntity stringEntity = new StringEntity(jsonEntity);
-			CloseableHttpResponse httpResponse = commandExecution.executeCommandJson(path, stringEntity);
+			CloseableHttpResponse httpResponse = commandJSonExecution.executeCommandJson(path, stringEntity);
 			try {
 				statusCode = httpResponse.getStatusLine().getStatusCode();
 				HttpEntity httpEntity = httpResponse.getEntity();
